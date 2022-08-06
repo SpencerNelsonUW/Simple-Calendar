@@ -30,37 +30,28 @@ init();
 
 
 
+$(".saveBtn").on("click", function () {
+    // Get nearby values of the description in JQuery
+    var text = $(this).siblings(".description").val();
+    var time = $(this).parent().attr("id");
 
+    // Save text in local storage
+    localStorage.setItem(time, text);
+})
 
+// Get item from local storage if any
+function getTime() {
+$("#hour8 .description").val(localStorage.getItem("hour8"));
+$("#hour9 .description").val(localStorage.getItem("hour9"));
+$("#hour10 .description").val(localStorage.getItem("hour10"));
+$("#hour11 .description").val(localStorage.getItem("hour11"));
+$("#hour12 .description").val(localStorage.getItem("hour12"));
+$("#hour13 .description").val(localStorage.getItem("hour13"));
+$("#hour14 .description").val(localStorage.getItem("hour14"));
+$("#hour15 .description").val(localStorage.getItem("hour15"));
+$("#hour16 .description").val(localStorage.getItem("hour16"));
+$("#hour17 .description").val(localStorage.getItem("hour17"));
+}
 
+getTime();
 
-
-
-
-// BROKEN ATTEMPT AT HAVING THE USER SAVE TEXT INPUT 
-// telling Java that my userInput variable is the same as the userInput class's value
-// this may save all the elements with that class not just the one line
-// this is only set up on the top line. make sure to add it to all the necessary lines in html if it works
-// let userInput = $(".userInput").value;
-
-// telling HTML that my saveBtn variable is the same as the saveBtn in html
-// let saveBtn = $(".saveBtn");
-
-// making an event listener for the save button and to start the saveUserInput function when clicked.
-// saveBtn.on("click", saveUserInput());
-
-// save function to stringify the value of userInput and save it locally as "userText"
-// function saveUserInput(){
-//    var sendJSON = JSON.stringify(userInput);
-//    localStorage.setItem("userText", sendJSON)
-// }
-
-// function to parse the saved string
-// function get() {
-//    var getJSON = localStorage.getItem("userText");
-//    if (getJSON){
-//        userText = JSON.parse(getJSON)
-//    }
-// }
-
-// window.addEventListener("load", (get))
