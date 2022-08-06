@@ -28,11 +28,10 @@ for (var i=0; i < timeSlot.length; i++){        //continue to loop until we have
 init();
 
 
-
-
+//SECTION OF JS TO SAVE AND RETRIEVE THE TEXT ENTERED BY THE USER
 $(".saveBtn").on("click", function () {
-    // Get nearby values of the description in JQuery
-    var text = $(this).siblings(".description").val();
+    // Get nearby values of the userText in JQuery
+    var text = $(this).siblings(".userText").val();
     var time = $(this).parent().attr("id");
 
     // Save text in local storage
@@ -41,16 +40,16 @@ $(".saveBtn").on("click", function () {
 
 // Get item from local storage if any
 function getTime() {
-$("#hour8 .description").val(localStorage.getItem("hour8"));
-$("#hour9 .description").val(localStorage.getItem("hour9"));
-$("#hour10 .description").val(localStorage.getItem("hour10"));
-$("#hour11 .description").val(localStorage.getItem("hour11"));
-$("#hour12 .description").val(localStorage.getItem("hour12"));
-$("#hour13 .description").val(localStorage.getItem("hour13"));
-$("#hour14 .description").val(localStorage.getItem("hour14"));
-$("#hour15 .description").val(localStorage.getItem("hour15"));
-$("#hour16 .description").val(localStorage.getItem("hour16"));
-$("#hour17 .description").val(localStorage.getItem("hour17"));
+$("#hour8 .userText").val(localStorage.getItem("hour8"));
+$("#hour9 .userText").val(localStorage.getItem("hour9"));
+$("#hour10 .userText").val(localStorage.getItem("hour10"));
+$("#hour11 .userText").val(localStorage.getItem("hour11"));
+$("#hour12 .userText").val(localStorage.getItem("hour12"));
+$("#hour13 .userText").val(localStorage.getItem("hour13"));
+$("#hour14 .userText").val(localStorage.getItem("hour14"));
+$("#hour15 .userText").val(localStorage.getItem("hour15"));
+$("#hour16 .userText").val(localStorage.getItem("hour16"));
+$("#hour17 .userText").val(localStorage.getItem("hour17"));
 }
 
 getTime();
