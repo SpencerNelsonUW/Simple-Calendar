@@ -6,6 +6,7 @@ document.getElementById("currentDay").innerHTML = now;
 //timeSlot is equal to selecting all timeSlot classed divs, there are 10 of these divs
 var timeSlot = $(".timeSlot");
 //console.log(timeSlot);
+var hourDiv = $(".hour");
 
 function init(){
 for (var i=0; i < timeSlot.length; i++){        //continue to loop until we have done the loop equal to the amount of timeslot divs, ie 10 times
@@ -14,14 +15,19 @@ for (var i=0; i < timeSlot.length; i++){        //continue to loop until we have
     var hour = hourArray.children[0].textContent    //this selects the text within the timeSlot Div individually so that they can be logged and accessed individually
     //console.log(hour)
     var timeInstance = moment(hour, "LT");    //this converts the each text within the timeSlot div individually into a moment
-    
+    //console.log(timeInstance)
+    var hourDivArray = hourDiv[i];
     //THIS SHOULD COMPARE THE CURRENT MOMENT TO SEE IF IT IS BEFORE OR AFTER THE timeInstance AKA the timeSlot time
-    if (moment().isAfter(timeInstance)){
-        $(".timeSlot").addClass("past");
-    } else if (moment().isBefore(timeInstance)){
-        $(".timeSlot").addClass(".future");
+    //console.log(moment().format("LT") == timeInstance)
+    //console.log(moment().isAfter(timeInstance))
+    //console.log(moment().isAfter(timeInstance))
+    if (moment().isBefore(timeInstance)){
+        hourDivArray.setAttribute("class", "past");
+    } 
+    else if (moment().isAfter(timeInstance)){
+        hourDivArray.setAttribute("class", "future");
     } else {
-        $(".timeSlot").addClass(".present");
+        hourDivArray.setAttribute("class", "present");
     }
 }}
 
