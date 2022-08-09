@@ -1,12 +1,10 @@
-//this variable is now equal to the default formatted moment function/api
-var now = moment().format("LT");
-//this is where I tell the element to show its inner HTML as the variable created above
-document.getElementById("currentDay").innerHTML = now;
+var now = moment().format('MMMM Do YYYY, h:mm:ss a'); //this variable is now equal to the default formatted moment function/api
+document.getElementById("currentDay").innerHTML = now; //this is where I tell the element to show its inner HTML as the variable created above
 
-//timeSlot is equal to selecting all timeSlot classed divs, there are 10 of these divs
-var timeSlot = $(".timeSlot");
+
+var timeSlot = $(".timeSlot"); //timeSlot is equal to selecting all timeSlot classed divs, there are 10 of these divs
 //console.log(timeSlot);
-var hourDiv = $(".hour");
+var hourDiv = $(".hour"); // setting up a variable to make an array out of the divs I would like to have change color.
 
 function init(){
 for (var i=0; i < timeSlot.length; i++){        //continue to loop until we have done the loop equal to the amount of timeslot divs, ie 10 times
@@ -16,16 +14,13 @@ for (var i=0; i < timeSlot.length; i++){        //continue to loop until we have
     //console.log(hour)
     var timeInstance = moment(hour, "LT");    //this converts the each text within the timeSlot div individually into a moment
     //console.log(timeInstance)
-    var hourDivArray = hourDiv[i];
-    //THIS SHOULD COMPARE THE CURRENT MOMENT TO SEE IF IT IS BEFORE OR AFTER THE timeInstance AKA the timeSlot time
-    //console.log(moment().format("LT") == timeInstance)
-    //console.log(moment().isAfter(timeInstance))
-    //console.log(moment().isAfter(timeInstance))
+    var hourDivArray = hourDiv[i]; //creates array out of the divs holding the hour
+    //compares if the current moment is before or after the timeInstance AKA the timeSlot time
     if (moment().isBefore(timeInstance)){
-        hourDivArray.setAttribute("class", "past");
+        hourDivArray.setAttribute("class", "future");
     } 
     else if (moment().isAfter(timeInstance)){
-        hourDivArray.setAttribute("class", "future");
+        hourDivArray.setAttribute("class", "past");
     } else {
         hourDivArray.setAttribute("class", "present");
     }
