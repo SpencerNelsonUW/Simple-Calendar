@@ -28,9 +28,9 @@ for (var i=0; i < timeSlot.length; i++){        //continue to loop until we have
 
 init();
 
-
 //SECTION OF JS TO SAVE AND RETRIEVE THE TEXT ENTERED BY THE USER
-$(".saveBtn").on("click", function () {
+$(".saveBtn").on("click", function (event) {
+    event.preventDefault();
     // Get nearby values of the userText in JQuery
     var text = $(this).siblings(".userText").val();
     var time = $(this).parent().attr("id");
